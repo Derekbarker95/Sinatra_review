@@ -2,6 +2,15 @@ require "sinatra"
 
 
 get "/" do
-    "<h1>Home<h1>"
     erb :home
+end
+
+post "/" do
+  
+  if "#{params[:name]}" == ""
+    "Hello #{params[:email]} !"
+  else
+    "Hello #{params[:name]} !"
+  end
+
 end
