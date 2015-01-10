@@ -1,4 +1,5 @@
 require "sinatra"
+require "rerun"
 
 
 get "/" do
@@ -6,7 +7,7 @@ get "/" do
 end
 
 post "/" do
-  
+
   if "#{params[:name]}" == ""
     "Hello #{params[:email]} !"
   else
