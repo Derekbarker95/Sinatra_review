@@ -9,22 +9,20 @@ require "./contact.rb"
 
 
 get "/" do
+    @contacts=Contact.all.reverse
     erb :home
 end
 
 post "/" do
-
+  @contacts=Contact.all.reverse
   contact = Contact.new
   contact.name = params[:name]
   contact.email = params[:email]
   contact.save
 
-  if "#{params[:name]}" == ""
-    "Hello #{params[:email]} !"
-    #Contact.create(:name '#{params[:name]}', :email '#{params[:email]}')
-  else
-    "Hello #{params[:name]} !"
-    #Contact.create(:name '#{params[:name]}', :email '#{params[:email]}')
-  end
+
+  #.create(:name '#{params[:name]}', :email '#{params[:email]}')
+  
+  erb :home
 
 end
